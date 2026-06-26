@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universal Cup Problem Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>UCup Tracker</h1>
+                <p>Advanced Dashboard</p>
+            </div>
+            
+            <nav class="category-nav" id="categoryNav">
+                <!-- Categories will be injected here -->
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="stats-box">
+                    <span id="totalProblems">0</span>
+                    <label>Tagged Problems</label>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="main-header">
+                <div class="header-info">
+                    <h2 id="currentCategoryTitle">Overview</h2>
+                    <p id="currentCategoryDesc">Select a category to view problems sorted by difficulty.</p>
+                </div>
+                <div class="header-actions">
+                    <button id="refreshBtn" class="action-btn">
+                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.59-10.05l5.67-5.67"/></svg>
+                        Reload CSVs
+                    </button>
+                </div>
+            </header>
+
+            <div class="content-area" id="problemList">
+                <div class="empty-state">
+                    <div class="spinner"></div>
+                    <p>Loading your tagged problems...</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- PDF Viewer Modal -->
+    <div id="pdfModal" class="modal-overlay">
+        <div class="modal-container">
+            <div class="modal-header-bar">
+                <h3 id="modalTitle">Problem Statement</h3>
+                <button id="closeModalBtn" class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <iframe id="pdfFrame" src="" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
